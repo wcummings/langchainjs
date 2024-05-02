@@ -177,7 +177,7 @@ export abstract class TextSplitter
   }
 
   private joinDocs(docs: string[], separator: string): string | null {
-    const text = docs.join(separator);
+    const text = keepSeparator ? docs.join(separator) : docs.join(separator).trim();
     return text === "" ? null : text;
   }
 
